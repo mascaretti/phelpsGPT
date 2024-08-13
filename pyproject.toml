@@ -1,0 +1,22 @@
+[project]
+name = "phelpsGPT"
+version = "0.0.1"
+authors = [
+  { name="Andrea Mascaretti", email="amascare@sissa.it" },
+]
+description = "A tiny LLM built from scratch"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/mascaretti/phelpsGPT"
+Issues = "https://github.com/mascaretti/phelpsGPT/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
