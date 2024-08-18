@@ -3,29 +3,59 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "phelpsGPT"
-version = "0.0.1"
-authors = [
-  { name="Andrea Mascaretti", email="amascare@sissa.it" },
-]
-description = "A tiny LLM built from scratch"
+name = "phelpsgpt"
+dynamic = ["version"]
+description = ''
 readme = "README.md"
 requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Andrea Mascaretti", email = "amascare@sissa.it" },
+]
 classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dynamic = ["version"]
-dependencies = [
-    "torch",
-    "tiktoken"
-]
+dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/mascaretti/phelpsGPT"
-Issues = "https://github.com/mascaretti/phelpsGPT/issues"
-[tool]
+Documentation = "https://github.com/Andrea Mascaretti/phelpsgpt#readme"
+Issues = "https://github.com/Andrea Mascaretti/phelpsgpt/issues"
+Source = "https://github.com/Andrea Mascaretti/phelpsgpt"
 
-[tool.hatch.metadata]
-allow-direct-references = true
+[tool.hatch.version]
+path = "src/phelpsgpt/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/phelpsgpt tests}"
+
+[tool.coverage.run]
+source_pkgs = ["phelpsgpt", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/phelpsgpt/__about__.py",
+]
+
+[tool.coverage.paths]
+phelpsgpt = ["src/phelpsgpt", "*/phelpsgpt/src/phelpsgpt"]
+tests = ["tests", "*/phelpsgpt/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
