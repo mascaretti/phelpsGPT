@@ -1,3 +1,7 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "phelpsGPT"
 version = "0.0.1"
@@ -12,11 +16,16 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+dynamic = ["version"]
+dependencies = [
+    "torch",
+    "tiktoken"
+]
 
 [project.urls]
 Homepage = "https://github.com/mascaretti/phelpsGPT"
 Issues = "https://github.com/mascaretti/phelpsGPT/issues"
+[tool]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+[tool.hatch.metadata]
+allow-direct-references = true
